@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}ENROLLMENTS{% endblock %}
+
+{% block content %}
+<CENTER><img src='/static/download.png'></img></CENTER>
+
+    <h1>REVANSOFT TECHNOLOGY</h1>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Enroll Student in Course</h1>
+    <form method="POST">
+        <label>Enrollment ID:
+            <input type="text" name="Enrollment ID" required>
+        </label><br><br>
+        <label>Student ID:
+            <select name="Student ID">
+                {% for student in students %}
+                    <option value="{{ student['Student ID'] }}">{{ student['Student ID'] }} - {{ student['Full Name'] }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+        <label>Course ID:
+            <select name="Course ID">
+                {% for course in courses %}
+                    <option value="{{ course['Course ID'] }}">{{ course['Course ID'] }} - {{ course['Course Name'] }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+        <label>Enrollment Date:
+            <input type="date" name="Enrollment Date" required>
+        </label><br><br>
+        <label>Completion Status:
+            <select name="Status">
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Dropped">Dropped</option>
+            </select>
+        </label><br><br>
+        <label>Feedback:
+            <textarea name="Feedback" rows="3"></textarea>
+        </label><br><br>
+        <button type="submit">Enroll</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+
+</html>

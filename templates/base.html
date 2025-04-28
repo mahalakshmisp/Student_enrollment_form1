@@ -1,0 +1,42 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Revan Soft Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="/static/download.png" alt="Revan Soft Logo">
+            <h2>Revan Soft</h2>
+        </div>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/students">Students</a>
+            <a href="/add_student">Add Student</a>
+            <a href="/courses">Add Course</a>
+            <a href="/enrollments">Enrollments</a>
+            <a href="/attendance">Attendance</a>
+            <a href="/payments">Payments</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/instructors">Instructors</a>
+        </nav>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main-content');
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>

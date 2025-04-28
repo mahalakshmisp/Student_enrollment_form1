@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>REVANSOFT TECHNOLOGY</h1>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Sheet</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Record Attendance</h1>
+    <form method="POST">
+        <label>Date:
+            <input type="date" name="Date" required>
+        </label><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student['Student ID'] }}</td>
+                    <td>{{ student['Full Name'] }}</td>
+                    <td>
+                        <select name="attendance_{{ student['Student ID'] }}">
+                            <option value="P">✅ Present</option>
+                            <option value="A">❌ Absent</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <button type="submit">Submit Attendance</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+
+</html>

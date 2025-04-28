@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>REVANSOFT TECHNOLOGY</h1>
+    <!-- Put your specific page content here -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard Summary</h1>
+        <div class="summary-boxes">
+            <div class="summary">
+                <h2>Total Students</h2>
+                <p>{{ total_students }}</p>
+            </div>
+            <div class="summary">
+                <h2>Active Courses</h2>
+                <p>{{ active_courses }}</p>
+            </div>
+            <div class="summary">
+                <h2>Monthly Revenue</h2>
+                <p>&#8377;{{ monthly_revenue }}</p>
+            </div>
+        </div>
+        <h2 style="text-align:center; margin-top:40px;">Enrollment Overview</h2>
+        <canvas id="enrollmentChart" width="600" height="300" style="display:block;margin:0 auto;"></canvas>
+    </div>
+    <script>
+        const ctx = document.getElementById('enrollmentChart').getContext('2d');
+        const enrollmentChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ chart_labels|safe }},
+                datasets: [{
+                    label: 'Enrollments per Course',
+                    data: {{ chart_data|safe }},
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+{% endblock %}
+
+</html>

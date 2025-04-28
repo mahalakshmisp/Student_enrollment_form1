@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>REVANSOFT TECHNOLOGY</h1>
+ 
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Full Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Course</th>
+                    <th>Enroll Date</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student['Student ID'] }}</td>
+                    <td>{{ student['Full Name'] }}</td>
+                    <td>{{ student['DOB'] }}</td>
+                    <td>{{ student['Gender'] }}</td>
+                    <td>{{ student['Phone'] }}</td>
+                    <td>{{ student['Email'] }}</td>
+                    <td>{{ student['Address'] }}</td>
+                    <td>{{ student['Course'] }}</td>
+                    <td>{{ student['Enroll Date'] }}</td>
+                    <td>{{ student['Payment Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}
+
+</html>

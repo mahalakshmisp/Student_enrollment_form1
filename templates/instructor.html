@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <CENTER><img src='download.png'></img></CENTER>
+    <h1>REVANSOFT TECHNOLOGY</h1>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Instructor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Add Instructor Details</h1>
+    <form method="POST">
+        <label>Instructor ID:
+            <input type="text" name="Instructor ID" required>
+        </label><br><br>
+        <label>Name:
+            <input type="text" name="Name" required>
+        </label><br><br>
+        <label>Contact Info:
+            <input type="text" name="Contact" required>
+        </label><br><br>
+        <label>Courses Assigned:
+            <input type="text" name="Courses" placeholder="e.g. Python, AI, Data Analytics">
+        </label><br><br>
+        <label>Availability:
+            <select name="Availability">
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="On-demand">On-demand</option>
+            </select>
+        </label><br><br>
+        <label>Rate:
+            <input type="text" name="Rate" placeholder="Optional">
+        </label><br><br>
+        <button type="submit">Add Instructor</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+
+</html>

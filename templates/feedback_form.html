@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}FEEDBACK{% endblock %}
+
+{% block content %}
+    <h1>REVANSOFT TECHNOLOGY</h1>
+ 
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Feedback & Evaluation</h1>
+    <form method="POST">
+        <label>Course Name:
+            <input type="text" name="Course Name" required>
+        </label><br><br>
+        <label>Student Name:
+            <input type="text" name="Student Name" required>
+        </label><br><br>
+        <label>Rating (1-5):
+            <select name="Rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label><br><br>
+        <label>Comments:
+            <textarea name="Comments" rows="4" cols="50" placeholder="Enter feedback here..."></textarea>
+        </label><br><br>
+        <label>Date Submitted:
+            <input type="date" name="Date" required>
+        </label><br><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+</html>
