@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+{% block title %}Add New Student{% endblock %}
+
+{% block content %}
+    <h1>REVANSOFT TECHNOLOGY</h1>
+    <!-- Put your specific page content here -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Add New Student</h1>
+    <form method="POST">
+        <label>Student ID: <input type="text" name="Student ID" required></label><br><br>
+        <label>Full Name: <input type="text" name="Full Name" required></label><br><br>
+        <label>Date of Birth: <input type="date" name="DOB" required></label><br><br>
+        <label>Gender: 
+            <select name="Gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </label><br><br>
+        <label>Phone: <input type="text" name="Phone" required></label><br><br>
+        <label>Email: <input type="email" name="Email" required></label><br><br>
+        <label>Address: <input type="text" name="Address" required></label><br><br>
+        <label>Course:
+            <select name="Course">
+                
+                    <option>Data analytics</option>
+		    <option>Python</option>
+                
+            </select>
+        </label><br><br>
+        <label>Enroll Date: <input type="date" name="Enroll Date" required></label><br><br>
+        <label>Payment Status:
+            <select name="Payment Status">
+                <option>Paid</option>
+                <option>Unpaid</option>
+                <option>Partial</option>
+            </select>
+        </label><br><br>
+        <button type="submit">Add Student</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+</html>
